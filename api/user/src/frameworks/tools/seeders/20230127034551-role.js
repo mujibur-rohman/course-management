@@ -1,6 +1,6 @@
 "use strict";
 
-const role = require("../factories/role.factory");
+const roles = require("../factories/roles-factory");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

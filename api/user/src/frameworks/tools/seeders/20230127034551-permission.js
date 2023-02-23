@@ -1,6 +1,6 @@
 "use strict";
 
-const permissions = require("../factories/permissions.factory");
+const permissions = require("../factories/permissions-factory");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {

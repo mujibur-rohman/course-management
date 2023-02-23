@@ -1,6 +1,8 @@
-const config = require("./config/config");
+require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const express = require("express");
+const routes = require("./frameworks/webserver/routes");
+const server = require("./frameworks/webserver/server");
 
 //config_db
 const process = require("process");
@@ -14,6 +16,7 @@ const config = require("../src/frameworks/database/" +
 // configuration express etc...
 
 const app = express();
+const router = express.Router();
 
 // Database Configuration...
 let sequelize;
@@ -29,7 +32,8 @@ if (config.use_env_variable) {
 }
 
 // routes...
-routes(app, sequilize);
+routes(router, sequelize, Sequelize.DataTypes);
+server(app);
 
 // error handling...
 

@@ -1,6 +1,6 @@
 "use strict";
 
-const userFaker = require("../factories/user-factory");
+const userFaker = require("../factories/users-factory");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -14,7 +14,16 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    return queryInterface.bulkInsert("users", [userFaker(10)]);
+    return queryInterface.bulkInsert("users", [
+      // userFaker(10),
+      {
+        username: "dew",
+        email: "dew@dew.com",
+        password: "dew",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
   },
 
   async down(queryInterface, Sequelize) {

@@ -1,6 +1,6 @@
 "use strict";
 
-const role = require("../factories/role-has-permissions.factory");
+const roleHasPermissions = require("../factories/role-has-permissions-factory");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
      */
     return queryInterface.bulkInsert(
       "role_has_permissions",
-      role_has_permissions()
+      roleHasPermissions()
     );
   },
 

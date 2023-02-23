@@ -1,18 +1,17 @@
 // or, if using CommonJS
-const roleModel = require("../../database/" +
-  process.env.DB_CONNECTION +
-  "/models").role;
-const permissionModel = require("../../database/" +
-  process.env.DB_CONNECTION +
-  "/models").permission;
+const roleModel = require("../../database/postgres/models/role");
+const permissionModel = require("../../database/postgres/models/permission");
+const { Sequelize } = require("sequelize");
 
-function roles() {
+function roleHasPermissions() {
   const role = (roleName) => {
-    roleModel.findOrCreate({
+    const role = roleModel(sequilize);
+    role.findOrCreate({
       where: { name: roleName },
     });
   };
   const permission = (permissionName) => {
+    const permission = permissionModel(sequilize);
     permissionModel.findOrCreate({
       where: { name: permissionName },
     });
@@ -37,4 +36,4 @@ function roles() {
   ];
 }
 
-module.exports = roles;
+module.exports = roleHasPermissions;
