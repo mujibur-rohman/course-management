@@ -1,6 +1,6 @@
 require("dotenv").config();
 const path = require("path");
-const app = require("./app");
+const app = require("./routes/app");
 const port = process.env.APP_PORT || 5000;
 app.listen(port, function (err) {
   if (err) console.log(err);

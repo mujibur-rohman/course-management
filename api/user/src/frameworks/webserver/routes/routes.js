@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 
-const db = require("./frameworks/database/mysql/models/index");
+const db = require("../../database/mysql/models/index");
 
 app.use(router);
 
