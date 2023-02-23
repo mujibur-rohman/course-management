@@ -9,33 +9,45 @@ const menu = [
   {
     name: "Dashboard",
     route: "/siswa",
-    icon: <LockClosedIcon className="w-6 h-6" />,
+    icon: <Squares2X2Icon className="w-6 h-6" />,
     role: ["siswa"],
   },
   {
-    name: "Dashboard",
-    route: "/admin",
-    icon: <Squares2X2Icon className="w-6 h-6" />,
-    role: ["admin", "pengajar"],
-  },
-  {
-    name: "Course",
-    route: "/admin/course",
+    name: "Courses",
+    route: "/siswa/courses",
     icon: <BookOpenIcon className="w-6 h-6" />,
-    role: ["admin", "pengajar"],
+    role: ["siswa"],
   },
   {
-    name: "Enrollment",
-    route: "/admin/enrollment",
-    icon: <UsersIcon className="w-6 h-6" />,
-    role: ["admin"],
-  },
-  {
-    name: "Permission",
-    route: "/admin/permission",
+    name: "User Management",
+    route: "/siswa/user-management",
     icon: <LockClosedIcon className="w-6 h-6" />,
-    role: ["admin"],
+    role: ["siswa"],
   },
+  // {
+  //   name: "Dashboard",
+  //   route: "/admin",
+  //   icon: <Squares2X2Icon className="w-6 h-6" />,
+  //   role: ["admin", "pengajar"],
+  // },
+  // {
+  //   name: "Course",
+  //   route: "/admin/course",
+  //   icon: <BookOpenIcon className="w-6 h-6" />,
+  //   role: ["admin", "pengajar"],
+  // },
+  // {
+  //   name: "Enrollment",
+  //   route: "/admin/enrollment",
+  //   icon: <UsersIcon className="w-6 h-6" />,
+  //   role: ["admin"],
+  // },
+  // {
+  //   name: "Permission",
+  //   route: "/admin/permission",
+  //   icon: <LockClosedIcon className="w-6 h-6" />,
+  //   role: ["admin"],
+  // },
 ];
 
 export default menu;
