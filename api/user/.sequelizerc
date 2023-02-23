@@ -2,11 +2,12 @@ require("dotenv").config();
 const path = require("path");
 
 let db_connection = process.env.DB_CONNECTION;
-let folder = "frameworks/database/" + db_connection;
+let conf = "src/frameworks/database/" + db_connection;
+let tools = "src/frameworks/tools/";
 
 module.exports = {
-  config: path.join(folder, "config.json"),
-  "migrations-path": path.join(folder, "migrations"),
-  "seeders-path": path.join(folder, "seeders"),
-  "models-path": path.join(folder, "models"),
+  config: path.join(conf, "config.json"),
+  "migrations-path": path.join(tools, "migrations"),
+  "seeders-path": path.join(tools, "seeders"),
+  "models-path": path.join(conf, "models"),
 };
