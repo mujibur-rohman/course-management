@@ -2,8 +2,10 @@ import Link from "next/link";
 import React from "react";
 import menu from "../constant/Menus";
 import { Menu } from "react-daisyui";
+import { useRouter } from "next/router";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
+  const router = useRouter();
   return (
     <div
       className={`sticky top-0 h-screen  py-4 px-5 w-20 bg-base-100 ${

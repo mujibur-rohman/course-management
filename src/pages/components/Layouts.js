@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
 import { Button, Dropdown } from "react-daisyui";
+import { useRouter } from "next/router";
 
 const Layouts = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const router = useRouter();
+
   return (
     <main className="flex w-full bg-base-300">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />{" "}
@@ -27,22 +30,22 @@ const Layouts = ({ children }) => {
                 </div>{" "}
               </Button>{" "}
               <Dropdown.Menu className="w-52 menu-compact bg-neutral">
-                <li>
-                  <a className="justify-between">
-                    Profile <span className="badge"> New </span>{" "}
-                  </a>{" "}
-                </li>{" "}
-                <Dropdown.Item> Settings </Dropdown.Item>{" "}
+                <Dropdown.Item
+                  onClick={() => {
+                    router.push("/admin/profile");
+                  }}
+                >
+                  My Profile{" "}
+                </Dropdown.Item>{" "}
                 <Dropdown.Item> Logout </Dropdown.Item>{" "}
               </Dropdown.Menu>{" "}
             </Dropdown>{" "}
           </div>{" "}
         </nav>{" "}
         <section className="flex flex-col px-6 py-5 gap-4">
-          {" "}
-          {/* <p className="sticky top-20 py-2 bg-base-300">
-                                    <span className="text-primary">Dashboard</span> / Course
-                                  </p> */}{" "}
+          <p className="sticky top-20 py-2 bg-base-300 z-40">
+            <span className="text-primary"> Dashboard </span> / Course{" "}
+          </p>{" "}
           <div> {children} </div>{" "}
         </section>{" "}
       </div>{" "}
