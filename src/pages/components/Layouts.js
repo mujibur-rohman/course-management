@@ -7,7 +7,7 @@ import { Button, Dropdown } from "react-daisyui";
 const Layouts = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
   return (
-    <main className="flex w-full">
+    <main className="flex w-full bg-base-300">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="grow">
         <nav className="sticky h-20 top-0 bg-base-100 border-neutral border-b-[1px] left-0 w-full flex items-center px-4 justify-end xl:justify-between">
@@ -41,10 +41,10 @@ const Layouts = ({ children }) => {
           </div>
         </nav>
         <section className="flex flex-col px-6 py-5 gap-4">
-          <p>
+          <p className="sticky top-20 py-2 bg-base-300">
             <span className="text-primary">Dashboard</span> / Course
           </p>
-          <div className="bg-neutral rounded-md py-3 px-6">{children}</div>
+          <div>{children}</div>
         </section>
       </div>
     </main>

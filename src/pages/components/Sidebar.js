@@ -6,7 +6,7 @@ import menu from "../constant/Menus";
 const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
     <div
-      className={`sticky top-0 h-screen  py-4 px-5 w-20 ${
+      className={`sticky top-0 h-screen  py-4 px-5 w-20 bg-base-100 ${
         isOpen ? "xl:w-1/6" : "w-20"
       } transition-all border-r-[1px] border-neutral`}
     >
@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             href={menu.route}
             className={`flex gap-3 p-2 ${
               isOpen && "xl:py-3 xl:px-4"
-            } cursor-pointer rounded-lg hover:bg-neutral transition-all`}
+            } cursor-pointer rounded-lg hover:bg-primary hover:text-white transition-all`}
           >
             {menu.icon}
             <h1
