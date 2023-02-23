@@ -1,4 +1,3 @@
-import { Squares2X2Icon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import React from "react";
 import menu from "../constant/Menus";

@@ -8,6 +8,12 @@ import {
 const menu = [
   {
     name: "Dashboard",
+    route: "/siswa",
+    icon: <LockClosedIcon className="w-6 h-6" />,
+    role: ["siswa"],
+  },
+  {
+    name: "Dashboard",
     route: "/admin",
     icon: <Squares2X2Icon className="w-6 h-6" />,
     role: ["admin", "pengajar"],
