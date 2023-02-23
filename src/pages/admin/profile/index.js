@@ -59,6 +59,50 @@ const Profile = () => {
       <div className="flex flex-col xl:flex-row gap-3 mt-4">
         <div className="bg-neutral flex-col xl:flex-row xl:basis-8/12 rounded-lg p-4">
           <h1 className="text-xl font-medium">My Course</h1>
+          <div className="mt-5 flex flex-col gap-3">
+            <div className="bg-base-100 flex gap-4 rounded-md p-4">
+              <img
+                alt="avatar"
+                className="w-20 rounded-full self-start"
+                variant="circle"
+                src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png"
+              />
+              <div>
+                <h1 className="text-lg font-medium mb-2">Javascript Course</h1>
+                <p className="text-sm text-gray-400">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </div>
+              <Button color="secondary" className="text-white" size="sm">
+                Learn
+              </Button>
+            </div>
+            <div className="bg-base-100 flex gap-4 rounded-md p-4">
+              <img
+                alt="avatar"
+                className="w-20 rounded-full self-start"
+                variant="circle"
+                src="https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_960_720.png"
+              />
+              <div>
+                <h1 className="text-lg font-medium mb-2">Javascript Course</h1>
+                <p className="text-sm text-gray-400">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </div>
+              <Button color="secondary" className="text-white" size="sm">
+                Learn
+              </Button>
+            </div>
+          </div>
         </div>
         <div className="bg-neutral flex-col xl:flex-row xl:basis-4/12 rounded-lg p-4">
           <h1 className="text-xl font-medium">Change Password</h1>

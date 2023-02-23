@@ -36,7 +36,7 @@ const Layouts = ({ children }) => {
                     router.push("/admin/profile");
                   }}
                 >
-                  Settings
+                  My Profile
                 </Dropdown.Item>
                 <Dropdown.Item>Logout</Dropdown.Item>
               </Dropdown.Menu>

@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const router = useRouter();
-  console.log(router);
   return (
     <div
       className={`sticky top-0 h-screen  py-4 px-5 w-20 bg-base-100 ${
