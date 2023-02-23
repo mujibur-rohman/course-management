@@ -21,6 +21,7 @@
         "react": "18.2.0",
         "react-daisyui": "^3.0.3",
         "react-dom": "18.2.0",
+        "react-tailwindcss-select": "^1.6.0",
         "react-toastify": "^9.1.1",
         "yup": "^1.0.0"
     },

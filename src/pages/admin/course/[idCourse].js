@@ -1,12 +1,9 @@
 import Layouts from "@/pages/components/Layouts";
-import {
-  ArrowSmallDownIcon,
-  PencilSquareIcon,
-  TrashIcon,
-} from "@heroicons/react/24/solid";
+import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
 import { Button, Input, Mask, Table, Textarea } from "react-daisyui";
 import Select from "react-tailwindcss-select";
+import InfoCourseCard from "./components/InfoCourseCard";
 
 const CourseDetail = () => {
   const options = [
@@ -49,64 +46,35 @@ const CourseDetail = () => {
                 // disabled
                 className="resize-none h-44"
               />
-              <Select
-                classNames={{
-                  menuButton: (state) =>
-                    "flex text-sm text-gray-500 bg-[#0F172A] rounded-md p-2 shadow-sm transition-all duration-300 cursor-pointer",
-                  menu: "absolute z-10 w-full shadow-lg border-2 border-[#313a53] bg-[#1E293B] rounded-lg py-1 mt-1.5 text-sm",
-                  searchBox:
-                    "bg-[#0F172A] w-full p-2 outline-none text-[#8cc6ef] rounded-lg",
-                  searchIcon: "hidden",
-                  searchContainer: "p-1",
-                  listItem: (selected) => "text-white",
-                }}
-                primaryColor="#ffffff"
-                isSearchable
-                // value={animal}
-                // onChange={this.handleChange}
-                options={options}
-                value={value}
-                onChange={(value) => setValue(value)}
-              />
+              <div className="flex flex-col gap-3">
+                <label>Instructor</label>
+                <Select
+                  classNames={{
+                    menuButton: (state) =>
+                      "flex text-sm text-gray-500 bg-[#0F172A] rounded-md p-2 shadow-sm transition-all duration-300 cursor-pointer",
+                    menu: "absolute z-10 w-full shadow-lg border-2 border-[#313a53] bg-[#1E293B] rounded-lg py-1 mt-1.5 text-sm",
+                    searchBox:
+                      "bg-[#0F172A] w-full p-2 outline-none text-[#8cc6ef] rounded-lg",
+                    searchIcon: "hidden",
+                    searchContainer: "p-1",
+                    listItem: () => {
+                      return `text-white list-none cursor-pointer py-2 px-2 hover:bg-[#0F172A]`;
+                    },
+                  }}
+                  primaryColor="#ffffff"
+                  isSearchable
+                  // value={animal}
+                  // onChange={this.handleChange}
+                  options={options}
+                  value={value}
+                  onChange={(value) => setValue(value)}
+                />
+              </div>
             </div>
           </div>
         </div>
         <div className="basis-4/12 flex flex-col gap-3 sticky h-36 top-36">
-          <div className="bg-neutral p-3 rounded-lg">
-            <h3 className="font-bold text-lg mb-1">Course</h3>
-            <table className="text-sm">
-              <tbody>
-                <tr>
-                  <td className="font-medium pr-8">Available Course</td>
-                  <td className="pr-3">:</td>
-                  <td className="text-info">21 Des 2022 - 22 Des 2022</td>
-                </tr>
-                <tr>
-                  <td className="font-medium">Instructor</td>
-                  <td>:</td>
-                  <td className="text-info">John Doe</td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="flex gap-3 mt-3 justify-end">
-              <Button
-                color="primary"
-                size="sm"
-                className="text-white"
-                startIcon={<ArrowSmallDownIcon className="w-5" />}
-              >
-                Save
-              </Button>
-              <Button
-                variant="outline"
-                color="error"
-                size="sm"
-                startIcon={<TrashIcon className="w-5" />}
-              >
-                Delete
-              </Button>
-            </div>
-          </div>
+          <InfoCourseCard />
           <div className="bg-neutral p-3 rounded-lg">
             <h3 className="font-bold text-lg">Students</h3>
             <div className="overflow-x-auto mt-2">
