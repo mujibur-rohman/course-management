@@ -65,22 +65,22 @@ const FormCourse = () => {
               onChange={(value) => setValue(value)}
             />
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-3">
             <label className="font-medium">Available Course</label>
             <div className="flex gap-2">
               <div className="w-full">
-                <label className="text-sm">Start Date</label>
                 <Input
                   type="date"
                   className="w-full cursor-pointer date-picker"
                 />
+                <label className="text-sm">Start Date</label>
               </div>
               <div className="w-full">
-                <label className="text-sm">End Date</label>
                 <Input
                   type="date"
                   className="w-full cursor-pointer date-picker"
                 />
+                <label className="text-sm">End Date</label>
               </div>
             </div>
           </div>

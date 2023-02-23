@@ -5,12 +5,13 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/solid";
 import React, { useState } from "react";
-import { Button, Input, Mask, Table, Textarea } from "react-daisyui";
-import Select from "react-tailwindcss-select";
+import { Button, Collapse, Table } from "react-daisyui";
 import InfoCourseCard from "./components/InfoCourseCard";
 import FormCourse from "./components/FormCourse";
+import FormContent from "./components/FormContent";
 
 const CourseDetail = () => {
+  const [isOpenCreate, setIsOpenCreate] = useState(false);
   return (
     <Layouts>
       <section className="flex gap-3">
@@ -19,22 +20,93 @@ const CourseDetail = () => {
           <div className="bg-neutral p-5 rounded-lg">
             <h1 className="text-2xl font-bold mb-5">Content</h1>
             <div className="flex flex-col gap-4">
-              <div className="bg-base-100 px-3 py-4 flex justify-between rounded-lg font-medium">
-                <p>Lesson 1 : Introduction</p>
-                <div className="flex gap-2">
-                  <PencilSquareIcon className="w-5 cursor-pointer" />
-                  <TrashIcon className="w-5 cursor-pointer" />
-                </div>
-              </div>
-              <div className="bg-base-100 p-3 rounded-lg font-medium">
-                Lesson 1
-              </div>
+              <Collapse
+                className="border border-base-300 bg-base-100 rounded-box"
+                icon="arrow"
+                checkbox
+              >
+                <Collapse.Title className="font-medium flex justify-between">
+                  <p>Lesson 1 : Introduction</p>
+                </Collapse.Title>
+                <Collapse.Content>
+                  <p className="mb-4">Description</p>
+                  <div className="flex gap-2">
+                    <Button size="sm" color="error" variant="outline">
+                      <TrashIcon className="w-5 cursor-pointer" />
+                    </Button>
+                    <Button size="sm" color="warning" variant="outline">
+                      <PencilSquareIcon className="w-5 cursor-pointer" />
+                    </Button>
+                  </div>
+                </Collapse.Content>
+              </Collapse>
+              <Collapse
+                className="border border-base-300 bg-base-100 rounded-box"
+                icon="arrow"
+                checkbox
+              >
+                <Collapse.Title className="font-medium flex justify-between">
+                  <p>Lesson 1 : Introduction</p>
+                </Collapse.Title>
+                <Collapse.Content>
+                  <p className="mb-4">Description</p>
+                  <div className="flex gap-2">
+                    <Button size="sm" color="error" variant="outline">
+                      <TrashIcon className="w-5 cursor-pointer" />
+                    </Button>
+                    <Button size="sm" color="warning" variant="outline">
+                      <PencilSquareIcon className="w-5 cursor-pointer" />
+                    </Button>
+                  </div>
+                </Collapse.Content>
+              </Collapse>
+              <Collapse
+                className="border border-base-300 bg-base-100 rounded-box"
+                icon="arrow"
+                checkbox
+              >
+                <Collapse.Title className="font-medium flex justify-between">
+                  <p>Lesson 1 : Introduction</p>
+                </Collapse.Title>
+                <Collapse.Content>
+                  <p className="mb-4">Description</p>
+                  <div className="flex gap-2">
+                    <Button size="sm" color="error" variant="outline">
+                      <TrashIcon className="w-5 cursor-pointer" />
+                    </Button>
+                    <Button size="sm" color="warning" variant="outline">
+                      <PencilSquareIcon className="w-5 cursor-pointer" />
+                    </Button>
+                  </div>
+                </Collapse.Content>
+              </Collapse>
+              <Collapse
+                className="border border-base-300 bg-base-100 rounded-box"
+                icon="arrow"
+                checkbox
+              >
+                <Collapse.Title className="font-medium flex justify-between">
+                  <p>Lesson 1 : Introduction</p>
+                </Collapse.Title>
+                <Collapse.Content>
+                  <p className="mb-4">Description</p>
+                  <div className="flex gap-2">
+                    <Button size="sm" color="error" variant="outline">
+                      <TrashIcon className="w-5 cursor-pointer" />
+                    </Button>
+                    <Button size="sm" color="warning" variant="outline">
+                      <PencilSquareIcon className="w-5 cursor-pointer" />
+                    </Button>
+                  </div>
+                </Collapse.Content>
+              </Collapse>
               <div>
                 <Button
                   color="primary"
                   size="sm"
                   className="text-white"
                   startIcon={<PlusIcon className="w-5" />}
+                  onClick={() => setIsOpenCreate(true)}
                 >
                   Add Lesson
                 </Button>
@@ -67,6 +139,9 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* MODAL */}
+      <FormContent isOpen={isOpenCreate} setIsOpen={setIsOpenCreate} />
     </Layouts>
   );
 };

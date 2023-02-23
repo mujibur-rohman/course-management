@@ -1,8 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import menu from "../constant/Menus";
+import { useRouter } from "next/router";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
+  const router = useRouter();
+  console.log(router);
   return (
     <div
       className={`sticky top-0 h-screen  py-4 px-5 w-20 bg-base-100 ${
@@ -19,7 +22,9 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             href={menu.route}
             className={`flex gap-3 p-2 ${
               isOpen && "xl:py-3 xl:px-4"
-            } cursor-pointer rounded-lg hover:bg-primary hover:text-white transition-all`}
+            } cursor-pointer rounded-lg hover:bg-primary hover:text-white transition-all ${
+              router.asPath === menu.route && "bg-primary text-white"
+            }`}
           >
             {menu.icon}
             <h1

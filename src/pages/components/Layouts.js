@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
 import { Button, Dropdown } from "react-daisyui";
+import { useRouter } from "next/router";
 
 const Layouts = ({ children }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const router = useRouter();
+
   return (
     <main className="flex w-full bg-base-300">
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="grow">
-        <nav className="sticky h-20 top-0 bg-base-100 border-neutral border-b-[1px] left-0 w-full flex items-center px-4 justify-end xl:justify-between">
+        <nav className="sticky z-50 h-20 top-0 bg-base-100 border-neutral border-b-[1px] left-0 w-full flex items-center px-4 justify-end xl:justify-between">
           <Bars3BottomLeftIcon
             className="w-6 cursor-pointer h-6 hidden xl:block"
             onClick={() => setIsOpen(!isOpen)}
@@ -28,20 +31,20 @@ const Layouts = ({ children }) => {
                 </div>
               </Button>
               <Dropdown.Menu className="w-52 menu-compact bg-neutral">
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <Dropdown.Item>Settings</Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => {
+                    router.push("/admin/profile");
+                  }}
+                >
+                  Settings
+                </Dropdown.Item>
                 <Dropdown.Item>Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
         </nav>
         <section className="flex flex-col px-6 py-5 gap-4">
-          <p className="sticky top-20 py-2 bg-base-300">
+          <p className="sticky top-20 py-2 bg-base-300 z-40">
             <span className="text-primary">Dashboard</span> / Course
           </p>
           <div>{children}</div>
