@@ -1,14 +1,16 @@
 const authController = require("../../../adapter/controllers/auth-controller");
+const express = require("express");
+const router = express.Router();
+var bodyParser = require("body-parser");
 
-const authRoute = (router, roleRepo, permissionRepo) => {
-  // load controller with dependencies
-  const controller = authController();
+// For parsing application/x-www-form-urlencoded
+router.use(express.urlencoded({ extended: true }));
+// For parsing application/json
+router.use(express.json());
 
-  // POST enpdpoints
-  router.route("/").get(function (req, res, next) {
-    console.log("Router Working");
-    res.end();
-  });
+const authRoute = (sequelize, DataTypes) => {
+  const controller = authController(sequelize, DataTypes);
+  router.post("/login", controller.login);
 
   return router;
 };

@@ -3,6 +3,7 @@ const { Sequelize } = require("sequelize");
 const express = require("express");
 const routes = require("./frameworks/webserver/routes");
 const server = require("./frameworks/webserver/server");
+const index = require("./frameworks/webserver/routes/index");
 
 //config_db
 const process = require("process");
@@ -16,7 +17,6 @@ const config = require("../src/frameworks/database/" +
 // configuration express etc...
 
 const app = express();
-const router = express.Router();
 
 // Database Configuration...
 let sequelize;
@@ -32,9 +32,7 @@ if (config.use_env_variable) {
 }
 
 // routes...
-routes(router, sequelize, Sequelize.DataTypes);
+routes(app, sequelize, Sequelize.DataTypes);
 server(app);
 
 // error handling...
-
-module.exports = app;

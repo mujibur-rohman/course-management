@@ -1,7 +1,10 @@
 const permissionModel = require("../models/permission");
-module.exports = function roleRepository(sequlize) {
-  const permission = permissionModel(sequlize);
-  const findAll = () => {};
+
+const roleRepository = (sequlize, DataTypes) => {
+  const permission = permissionModel(sequlize, DataTypes);
+  const findAll = async () => {
+    return await permission.findAll();
+  };
   const findOne = () => {};
   const findById = () => {};
   const findOrCreate = (payload) => {
@@ -11,3 +14,5 @@ module.exports = function roleRepository(sequlize) {
   };
   return { findAll, findOne, findById, findOrCreate };
 };
+
+module.exports = roleRepository;

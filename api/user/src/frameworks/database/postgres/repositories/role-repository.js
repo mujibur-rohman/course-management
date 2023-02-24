@@ -1,7 +1,10 @@
 const roleModel = require("../models/role");
-module.exports = function roleRepository(sequlize, DataTypes) {
+
+const roleRepository = (sequlize, DataTypes) => {
   const role = roleModel(sequlize, DataTypes);
-  const findAll = () => {};
+  const findAll = async () => {
+    return await role.findAll();
+  };
   const findOne = () => {};
   const findById = () => {};
   const findByName = () => {};
@@ -12,3 +15,5 @@ module.exports = function roleRepository(sequlize, DataTypes) {
   };
   return { findAll, findOne, findById, findByName, findOrCreate };
 };
+
+module.exports = roleRepository;
