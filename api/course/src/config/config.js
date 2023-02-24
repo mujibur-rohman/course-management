@@ -1,9 +1,10 @@
-require("dotenv").config()
+require("dotenv").config();
 
 module.exports = {
   port: process.env.PORT || 9090,
   ip: process.env.HOST || "0.0.0.0",
-  mariadb: {
+  database: {
+    dialect: process.env.DB_DIALECT || "mysql",
     host: process.env.DB_HOST || "localhost",
     port: process.env.DB_PORT || "3306",
     dbname: process.env.DB_NAME || "sql",

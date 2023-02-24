@@ -1,8 +1,8 @@
 const config = require("./config/config");
 const { Sequelize } = require("sequelize");
 const express = require("express");
-const routes = require('./framework/webserver/routes/routes')
-const server = require('./framework/webserver/server')
+const routes = require('./frameworks/webserver/routes/routes')
+const server = require('./frameworks/webserver/server')
 require("dotenv").config()
 
 // this is entry point looks like...
@@ -14,10 +14,10 @@ const app = express();
 // Database Configuration...
 
 const sequelize = new Sequelize({
-    host: config.mariadb.host,
-    username: config.mariadb.username,
-    password: config.mariadb.password,
-    database: config.mariadb.dbname,
+    host: config.database.host,
+    username: config.database.username,
+    password: config.database.password,
+    database: config.database.dbname,
     dialect: "postgres",
 });
 
