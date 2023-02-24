@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize")
+const { Sequelize } = require('sequelize')
 
 module.exports = (config) => {
   const sequelize = new Sequelize({
@@ -9,13 +9,13 @@ module.exports = (config) => {
     database: config.db.name,
     dialect: config.db.dialect,
   })
-  
+
   sequelize
     .authenticate()
-    .then(() => {
-      return sequelize
-    })
+    .then(() => {})
     .catch((err) => {
       console.log(err)
     })
+
+  return sequelize
 }
