@@ -43,9 +43,10 @@ const Layouts = ({ children }) => {
           </div>{" "}
         </nav>{" "}
         <section className="flex flex-col px-6 py-5 gap-4">
-          <p className="sticky top-20 py-2 bg-base-300 z-40">
-            <span className="text-primary"> Dashboard </span> / Course{" "}
-          </p>{" "}
+          {" "}
+          {/* <p className="sticky top-20 py-2 bg-base-300 z-40">
+                        <span className="text-primary"> Dashboard </span> / Course{" "}
+                      </p> */}{" "}
           <div> {children} </div>{" "}
         </section>{" "}
       </div>{" "}

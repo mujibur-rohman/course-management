@@ -20,14 +20,6 @@ const menu = [
     role: ["siswa"],
   },
   {
-    name: "User Management",
-    route: "/siswa/user-management",
-    name: "Enrollment",
-    route: "/admin/enrollment",
-    icon: <UsersIcon className="w-6 h-6" />,
-    role: ["admin"],
-  },
-  {
     name: "Users",
     route: "/admin/users",
     icon: <UserIcon className="w-6 h-6" />,
