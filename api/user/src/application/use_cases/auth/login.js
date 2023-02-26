@@ -1,7 +1,11 @@
 const joi = require("joi");
 const authHelper = require("../../../frameworks/helpers/auth-helper");
-const userRepository = require("../../../frameworks/database/postgres/repositories/user-repository");
-const loginDetailRepository = require("../../../frameworks/database/postgres/repositories/login-detail-repository");
+const userRepository = require("../../../frameworks/database/" +
+  process.env.DB_CONNECTION +
+  "/repositories/user-repository");
+const loginDetailRepository = require("../../../frameworks/database/" +
+  process.env.DB_CONNECTION +
+  "/repositories/login-detail-repository");
 
 const login = async (req, sequelize, DataTypes) => {
   const authHelp = authHelper(
@@ -24,7 +28,7 @@ const login = async (req, sequelize, DataTypes) => {
 
     //check user login account exist in db
     const user = await (await authHelp).checkUserLogin(userValidation, req);
-    if (user == true) {
+    if (user) {
       //generate token with user agent
       const detailLogin = await (await authHelp).getDetailLogin(user.id, req);
       if (detailLogin) {
@@ -35,9 +39,10 @@ const login = async (req, sequelize, DataTypes) => {
         };
       }
     } else {
-      return user;
+      new Error("message: tidak ada user");
     }
   } catch (err) {
+    console.log(err);
     return err;
   }
 };

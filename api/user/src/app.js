@@ -1,10 +1,10 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
+const cookieParser = require("cookie-parser");
 const express = require("express");
-const useragent = require('express-useragent');
-const routes = require("./frameworks/webserver/routes");
+const useragent = require("express-useragent");
+const index = require("./frameworks/webserver/routes");
 const server = require("./frameworks/webserver/server");
-const index = require("./frameworks/webserver/routes/index");
 
 //config_db
 const process = require("process");
@@ -20,6 +20,15 @@ const config = require("../src/frameworks/database/" +
 const app = express();
 app.use(useragent.express());
 
+// For parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+// For parsing application/json
+app.use(express.json());
+
+// cookie parser
+app.use(cookieParser());
+
 // Database Configuration...
 let sequelize;
 if (config.use_env_variable) {
@@ -34,7 +43,7 @@ if (config.use_env_variable) {
 }
 
 // routes...
-routes(app, sequelize, Sequelize.DataTypes);
+index(app, sequelize, Sequelize.DataTypes);
 server(app);
 
 // error handling...
