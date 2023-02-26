@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const express = require("express");
+const useragent = require('express-useragent');
 const routes = require("./frameworks/webserver/routes");
 const server = require("./frameworks/webserver/server");
 const index = require("./frameworks/webserver/routes/index");
@@ -17,6 +18,7 @@ const config = require("../src/frameworks/database/" +
 // configuration express etc...
 
 const app = express();
+app.use(useragent.express());
 
 // Database Configuration...
 let sequelize;

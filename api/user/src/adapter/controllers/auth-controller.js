@@ -4,12 +4,8 @@ const authController = (sequelize, DataTypes) => {
   const register = (req, res, next) => {};
 
   const login = async (req, res, next) => {
-    await console.log("userrrrr", req.body);
-    const loginCheck = await loginUseCase(req.body, sequelize, DataTypes);
-    console.log(loginCheck);
-    // if (loginCheck) {
-    //   next();
-    // }
+    const login = await loginUseCase(req, sequelize, DataTypes);
+    return res.status(200).json(login);
   };
 
   const logout = (req, res, next) => {};

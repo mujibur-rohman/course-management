@@ -1,7 +1,6 @@
 const userModel = require("../models/user");
 
 const userRepository = async (sequlize, DataTypes) => {
-  await console.log("user repo", sequlize.define);
   const user = await userModel(sequlize, DataTypes);
   const findAll = async () => {
     return await user.findAll();
@@ -14,8 +13,8 @@ const userRepository = async (sequlize, DataTypes) => {
     });
   };
 
-  const findOne = (whereClause, includeField) => {
-    return user.findOne({
+  const findOne = async (whereClause, includeField) => {
+    return await user.findOne({
       where: whereClause,
       attributes: {
         include: includeField,
@@ -24,8 +23,8 @@ const userRepository = async (sequlize, DataTypes) => {
   };
 
   const findById = () => {};
-  const findOrCreate = (payload) => {
-    return user.findOrCreate({
+  const findOrCreate = async (payload) => {
+    return await user.findOrCreate({
       where: payload,
     });
   };
