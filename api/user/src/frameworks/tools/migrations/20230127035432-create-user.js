@@ -5,9 +5,10 @@ module.exports = {
     await queryInterface.createTable("users", {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        // autoIncrement: true,
+        default: Sequelize.fn("uuid_generate_v4"),
         primaryKey: true,
-        type: Sequelize.STRING,
+        type: Sequelize.UUID,
       },
       username: {
         type: Sequelize.STRING,

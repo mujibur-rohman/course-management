@@ -1,6 +1,7 @@
 "use strict";
 
-const userFaker = require("../factories/users-factory");
+const { faker } = require("@faker-js/faker/locale/id_ID");
+const { v4: uuidv4 } = require("uuid");
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -14,16 +15,20 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    return queryInterface.bulkInsert("users", [
-      // userFaker(10),
-      {
-        username: "dew",
-        email: "dew@dew.com",
-        password: "dew",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-    ]);
+    return queryInterface.bulkInsert(
+      "users",
+      // userFaker(5),
+      [
+        {
+          id: uuidv4(),
+          username: "dew",
+          email: "dew@dew.com",
+          password: "dew",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ]
+    );
   },
 
   async down(queryInterface, Sequelize) {
