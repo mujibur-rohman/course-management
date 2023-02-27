@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.date-picker {
+  position: relative;
+}
+
+::-webkit-calendar-picker-indicator {
+  @apply bg-neutral w-full h-full opacity-0 cursor-pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
