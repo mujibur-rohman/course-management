@@ -1,0 +1,12 @@
+require("dotenv").config()
+const path = require("path");
+const config = "src/frameworks/tools"
+const model = "src/frameworks/database/" + process.env.DB_DIALECT;
+const tools = "src/frameworks/tools";
+
+module.exports = {
+  "config": path.resolve(config, "config.js"),
+  "models-path": path.resolve(model, "models"),
+  "seeders-path": path.resolve(tools, "seeders"),
+  "migrations-path": path.resolve(tools, "migrations"),
+};
